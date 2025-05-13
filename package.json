@@ -1,0 +1,20 @@
+{
+  "name": "eleventy-plugin-footnotes",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Add footnotes to webpages in an eleventy project.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btrem/eleventy-plugin-footnotes.git"
+  },
+  "keywords": [
+    "eleventy-plugin",
+    "footnotes"
+  ],
+  "author": "Brian Tremblay",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/btrem/eleventy-plugin-footnotes/issues"
+  }
+}
