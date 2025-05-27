@@ -115,3 +115,21 @@ the `footnoteSymbol` filter. For example,
 `{{ 1 | footnoteSymbol }}` produces
 <samp>✲</samp>; `{{ 2 | footnoteSymbol }}` produces
 <samp>†</samp>; etc.
+
+
+## Roadmap
+
+- Add includes/partials/macros to output footnotes.
+Depends on expanding
+[virtual templates](https://www.11ty.dev/docs/virtual-templates/)
+to add support for includes.
+Follow along at
+[issue 3501](https://github.com/11ty/eleventy/issues/3501)
+or
+[issue 3768](https://github.com/11ty/eleventy/discussions/3768).
+
+
+## Maintainer
+
+Brian Tremblay
+[11ty-footnote@btrem.com](mailto:11ty-footnote@btrem.com)
