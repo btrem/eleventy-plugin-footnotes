@@ -96,7 +96,7 @@ Lorem ipsum dolor sit amet.{% footnoteMarker 1 %}
 will produce this html fragment:
 
 ```html
-Lorem ipsum dolor sit amet.<sup id="ref-1"><a href="#note-1">[1]</a>
+Lorem ipsum dolor sit amet.<sup><a id="ref-1" href="#note-1">[1]</a>
 ```
 
 
