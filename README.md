@@ -1,12 +1,10 @@
-Add footnotes to webpages in
+Add footnote markers to template output in
 [eleventy](https://www.11ty.dev/)
 projects.
-This is an alternative to
-[markdown-it-footnote](https://www.npmjs.com/package/markdown-it-footnote).
-Using this eleventy plugin, you can add footnotes to
-a post outside of the content -- for example in its
-[front matter](https://www.11ty.dev/docs/data-frontmatter/) --
-giving you more flexibility for where those footnotes appear in web pages.
+
+Useful for setups where you need to put footnote markers
+in your content, but want the footnotes themselves to
+appear _outside_ of that content.
 
 This project is beta.
 Breaking changes prior to version 1.0.0 are possible.
@@ -26,7 +24,9 @@ When it's more stable, I'll add it to the npm registry.
 
 </aside>
 
+
 ## Importing It in Eleventy:
+
 
 ### ES6 Syntax
 
@@ -37,6 +37,7 @@ export default function(eleventyConfig) {
     // config stuff...
 }
 ```
+
 
 ### Common js Syntax
 
@@ -53,14 +54,20 @@ module.exports = async function (eleventyConfig) {
 }
 ```
 
+
 ## Add the Plugin
+
+Use the
+[`addPlugin` method](https://www.11ty.dev/docs/create-plugin/)
+in your
+[eleventy configuration](https://www.11ty.dev/docs/config/)
+file:
 
 ```js
 eleventyConfig.addPlugin(footnotes);
 ```
 
-The footnotes plugin is now available in your
-templates.
+The footnotes plugin is now available in your templates.
 
 
 ## Usage
@@ -76,6 +83,7 @@ a footnote (which you supply, e.g., in a layout); and
 [filter](https://www.11ty.dev/docs/filters/)
 called `footnoteSymbol` that transforms a number to a
 footnote symbol, e.g., 2 => †;
+
 
 ### Shortcode
 
@@ -107,62 +115,3 @@ the `footnoteSymbol` filter. For example,
 `{{ 1 | footnoteSymbol }}` produces
 <samp>✲</samp>; `{{ 2 | footnoteSymbol }}` produces
 <samp>†</samp>; etc.
-
-### Symbols
-
-The plugin uses a list of twenty footnote symbols:
-✲, †, ‡, §, ‖, ¶, ⹋, ⸸, ⁑, ⁂, ✪, ❡, ✦, ❀, ❅, ♠, ♣, ♥, ♦, ❖.
-
-The first six are
-[standardized footnote symbols](https://en.wikipedia.org/wiki/Note_(typography)#Numbering_and_symbols),
-although two are slightly modified.
-See "Symbol Modifications" below for more.
-The remaining symbols are either variations of the first six --
-e.g., a double asterisk, an inverted dagger, etc. -- or
-are symbols that look like they would work as markers.
-
-#### Symbol Modifications
-
-##### Asterisks in Markdown
-
-The standard asterisk (Unicode U+002A) can cause problems in markdown
-if it appears at the beginning of a line, because markdown treats an
-asterisk in that place as an unordered list item.
-So this template extract
-
-```
-{{ 1 | footnoteSymbol }} Eleventy (software). In Wikipedia.
-https://en.wikipedia.org/wiki/Eleventy_(software)
-```
-
-would produce this output
-
-
-```
-* Eleventy (software). In Wikipedia. https://en.wikipedia.org/wiki/Eleventy_(software)
-```
-
-which would become this html:
-
-```html
-<ul>
-    <li>
-        Lorem ipsum. In Wikipedia. https://en.wikipedia.org/wiki/Lorem_ipsum
-    </li>
-</ul>
-```
-
-Note that the asterisk has been removed, replaced by `<ul>` markup.
-Not the desired result.
-
-This might be an edge case, but nonetheless, the plugin uses
-an "open center" asterisk (Unicode U+2732), in place of the standard one.
-
-##### Verical Bars
-
-It's probably more common to use the vertical bar
-(Unicode U+007C), entered twice, ||, as a footnote symbol.
-However, all of the other symbols in the list are single
-characters glyphs.
-Thus, for the sake of consistency, the plugin uses the single
-character glyph ‖ (double vertical line, Unicode U+2016).
