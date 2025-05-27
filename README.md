@@ -80,7 +80,7 @@ footnote symbol, e.g., 2 => †;
 ### Shortcode
 
 Add a footnote marker using the `footnoteMarker` shortcode.
-The format for markers is similar to
+The default format for markers is similar to
 [Wikipedia](https://www.wikipedia.org/)'s:
 they will be in a `<sup>`erscript element;
 bracketed; and will include a link using a

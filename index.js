@@ -2,6 +2,7 @@ import footnoteMarker from "./lib/footnoteMarker.js";
 import footnoteSymbol from "./lib/footnoteSymbol.js";
 import symbols from "./lib/symbols.json" with { type: "json" };
 
+let pluginConfiguration;
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default (eleventyConfig, pluginConf = {}) => {
@@ -14,6 +15,8 @@ export default (eleventyConfig, pluginConf = {}) => {
         ...defaults,
         ...pluginConf,
     };
+
+    pluginConfiguration = pluginConf;
 
     // make footnote markers available in templates
     eleventyConfig.addGlobalData(
@@ -33,3 +36,7 @@ export default (eleventyConfig, pluginConf = {}) => {
 export {
     footnoteMarker
 };
+
+export {
+    pluginConfiguration as pluginConf
+}
