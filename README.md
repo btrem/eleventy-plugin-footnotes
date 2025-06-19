@@ -131,5 +131,4 @@ or
 
 ## Maintainer
 
-Brian Tremblay
-[11ty-footnote@btrem.com](mailto:11ty-footnote@btrem.com)
+[Brian Tremblay](https://github.com/btrem)
